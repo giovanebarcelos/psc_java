@@ -14,7 +14,25 @@ package aula14;
 public class M001 {
 
 	public static void main(String[] args) {
-	
+		Menu menu = new Menu();
+		
+		// Inclusão pratos no Menu
+		menu.addItemMenu(new Prato("Vegetariano", 180));
+		menu.addItemMenu(new Prato("Peixe", 230));
+		menu.addItemMenu(new Prato("Frango", 250));
+		menu.addItemMenu(new Prato("Carne", 350));
+		
+		// Inclusão sobremesa no Menu
+		menu.addItemMenu(new Sobremesa("Abacaxi", 75));
+		menu.addItemMenu(new Sobremesa("Sorvete diet", 110));
+		menu.addItemMenu(new Sobremesa("Mousse diet", 170));
+		menu.addItemMenu(new Sobremesa("Mouse chocolate", 200));
+		
+		// Inclusão sobremesa no Menu
+		menu.addItemMenu(new Bebida("Chá", 20));
+		menu.addItemMenu(new Bebida("Suco de Laranja", 70));
+		menu.addItemMenu(new Bebida("Suco melão", 100));
+		menu.addItemMenu(new Bebida("Refrigerante diet", 65));
 
 	}
 
