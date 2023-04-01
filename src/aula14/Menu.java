@@ -67,4 +67,16 @@ public class Menu {
 		}
 	}
 
+	public int getCalorias() {
+		int caloriaPrato = 
+				menu.get(this.pratoEscolhido).getQtdeCalorias();
+		int caloriaBebida = 
+				menu.get(this.bebidaEscolhida).getQtdeCalorias();
+		int caloriaSobremesa = 
+				menu.get(this.sobremesaEscolhida).getQtdeCalorias();
+		
+		return caloriaPrato + caloriaBebida + caloriaSobremesa;
+		 
+	}
+
 }

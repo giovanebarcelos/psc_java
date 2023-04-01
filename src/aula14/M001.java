@@ -19,6 +19,9 @@ public class M001 {
 		addItensDoMenu(menu);
 		
 		menu.escolherMenu();
+		
+		System.out.println("Consumo de calorias = " +
+						menu.getCalorias());
 
 	}
 
