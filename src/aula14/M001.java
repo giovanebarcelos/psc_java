@@ -19,9 +19,6 @@ public class M001 {
 		addItensDoMenu(menu);
 		
 		menu.escolherMenu();
-		
-		
-		
 
 	}
 

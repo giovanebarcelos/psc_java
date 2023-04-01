@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Menu {
 	ArrayList<Caloria> menu = new ArrayList<Caloria>();
-	
+
 	public void addItemMenu(Caloria caloria) {
 		menu.add(caloria);
 	}
@@ -17,12 +17,12 @@ public class Menu {
 
 	private void escolherSobremesa() {
 		imprimirMenu("Sobremesa");
-		
+
 	}
 
 	private void escolherBebida() {
 		imprimirMenu("Bebida");
-		
+
 	}
 
 	private void escolherPrato() {
@@ -35,22 +35,18 @@ public class Menu {
 
 	private void imprimirOpcoesMenu(String item) {
 		for (int i = 0; i < menu.size(); i++) {
-			if (item.equals("Prato") && 
-					menu.get(i) instanceof Prato ) {
-				System.out.printf("%d) %s\n",
-						i+1, menu.get(i).getDescricao());
+			if (item.equals("Prato") && menu.get(i) instanceof Prato) {
+				System.out.printf("%d) %s\n", i + 1, 
+						menu.get(i).getDescricao());
 			} else if (item.equals("Bebida") && 
 					menu.get(i) instanceof Bebida) {
-				System.out.printf("%d) %s\n",
-						i+1, menu.get(i).getDescricao());
+				System.out.printf("%d) %s\n", i + 1, 
+						menu.get(i).getDescricao());
 			} else {
-				if (item.equals("Sobremesa") && 
-						menu.get(i) instanceof Bebida) {
-					System.out.printf("%d) %s\n",
-							i+1, menu.get(i).getDescricao());
-				}
+				System.out.printf("%d) %s\n", i + 1, 
+						menu.get(i).getDescricao());
 			}
 		}
 	}
-	
+
 }
