@@ -42,8 +42,9 @@ public class Menu {
 					menu.get(i) instanceof Bebida) {
 				System.out.printf("%d) %s\n", i + 1, 
 						menu.get(i).getDescricao());
-			} else {
-				System.out.printf("%d) %s\n", i + 1, 
+			} else if ( item.equals("Sobremesa") &&
+					menu.get(i) instanceof Sobremesa) {
+				System.out.printf("%d) %s\n", i + 1,
 						menu.get(i).getDescricao());
 			}
 		}
