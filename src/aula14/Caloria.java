@@ -3,6 +3,7 @@ package aula14;
 public abstract class Caloria {
 	private  String descricao;
 	private int qtdeCalorias;
+	private Double valor;
 	
 	public Caloria(String descricao, int qtdeCalorias) {
 		super();
@@ -22,5 +23,13 @@ public abstract class Caloria {
 	}
 	public void setQtdeCalorias(int qtdeCalorias) {
 		this.qtdeCalorias = qtdeCalorias;
+	}
+
+	public Double getValor() {
+		return valor;
+	}
+
+	public void setValor(Double valor) {
+		this.valor = valor;
 	}
 }
