@@ -16,6 +16,16 @@ public class M001 {
 	public static void main(String[] args) {
 		Menu menu = new Menu();
 		
+		addItensDoMenu(menu);
+		
+		menu.escolherMenu();
+		
+		
+		
+
+	}
+
+	private static void addItensDoMenu(Menu menu) {
 		// Inclusão pratos no Menu
 		menu.addItemMenu(new Prato("Vegetariano", 180));
 		menu.addItemMenu(new Prato("Peixe", 230));
@@ -28,12 +38,11 @@ public class M001 {
 		menu.addItemMenu(new Sobremesa("Mousse diet", 170));
 		menu.addItemMenu(new Sobremesa("Mouse chocolate", 200));
 		
-		// Inclusão sobremesa no Menu
+		// Inclusão bebidas no Menu
 		menu.addItemMenu(new Bebida("Chá", 20));
 		menu.addItemMenu(new Bebida("Suco de Laranja", 70));
 		menu.addItemMenu(new Bebida("Suco melão", 100));
 		menu.addItemMenu(new Bebida("Refrigerante diet", 65));
-
 	}
 
 }
