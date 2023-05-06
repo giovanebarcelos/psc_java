@@ -22,6 +22,10 @@ public class Aluno implements Serializable {
 		this.curso = curso;
 	}
 
+	public Aluno() {
+		// TODO Auto-generated constructor stub
+	}
+
 	private Integer id;
 	private String nome;
 	private String curso;
