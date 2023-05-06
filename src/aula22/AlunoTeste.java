@@ -1,14 +1,14 @@
 package aula22;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 public class AlunoTeste {
 
-	public static void main(String[] args) throws FileNotFoundException, IOException {
+	public static void main(String[] args) throws Exception {
 		Aluno aluno = new Aluno(1, "Dick Vigarista", "PSC");
 		
-		aluno.salvar();
+		//aluno.salvar();
+		
+		Aluno aluno_ret = aluno.pesquisar(1);
+		System.out.println(aluno_ret.getNome());
 	}
 
 }

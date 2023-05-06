@@ -50,7 +50,15 @@ public class Aluno implements Serializable {
 		this.curso = curso;
 	}
 
-	public void salvar() throws FileNotFoundException, IOException {
+	public void salvar() throws Exception {
+		if (pesquisar(this.getId()) != null) {
+			throw new 
+			   Exception("Aluno "+
+						 this.getId() +
+						 " já esta cadastrado!");
+			
+		}		
+		
 		ObjectOutputStream arquivo = new ObjectOutputStream(new FileOutputStream(NOMEARQUIVO));
 
 		arquivo.writeObject(this);
@@ -63,8 +71,8 @@ public class Aluno implements Serializable {
 		while (true) {
 			try {
 				Aluno aluno = (Aluno) arquivo.readObject();
-
-				if (aluno.id == id) {
+				
+				if (aluno.getId().equals(id)) {
 					return aluno;
 				}
 			} catch (ClassNotFoundException e) {
