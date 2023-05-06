@@ -8,13 +8,13 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-public class Aluno implements Serializable{
+public class Aluno implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private final String NOMEARQUIVO = "aluno.txt";
-	
+
 	public Aluno(Integer id, String nome, String curso) {
 		super();
 		this.id = id;
@@ -24,7 +24,7 @@ public class Aluno implements Serializable{
 
 	private Integer id;
 	private String nome;
-	private String curso;	
+	private String curso;
 
 	public Integer getId() {
 		return id;
@@ -49,23 +49,29 @@ public class Aluno implements Serializable{
 	public void setCurso(String curso) {
 		this.curso = curso;
 	}
-	
+
 	public void salvar() throws FileNotFoundException, IOException {
-		ObjectOutputStream arquivo = 
-				new ObjectOutputStream(
-						new FileOutputStream(NOMEARQUIVO));
-		
+		ObjectOutputStream arquivo = new ObjectOutputStream(new FileOutputStream(NOMEARQUIVO));
+
 		arquivo.writeObject(this);
 		arquivo.close();
 	}
-	
+
 	public Aluno pesquisar(Integer id) throws FileNotFoundException, IOException {
-		ObjectInputStream arquivo = 
-				new ObjectInputStream(
-					new FileInputStream(NOMEARQUIVO));
-		
-		// NOTE: TERMINAR O PROGRAMA  
-		
-		return null;
+		ObjectInputStream arquivo = new ObjectInputStream(new FileInputStream(NOMEARQUIVO));
+
+		while (true) {
+			try {
+				Aluno aluno = (Aluno) arquivo.readObject();
+
+				if (aluno.id == id) {
+					return aluno;
+				}
+			} catch (ClassNotFoundException e) {
+				return null;
+			} catch (IOException e) {
+				return null;
+			}
+		}
 	}
 }
