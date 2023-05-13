@@ -28,16 +28,54 @@ public class Matriz {
 		
 		matriz.lerNumerosPeloTeclado();
 		//matriz.preenchaAutomaticamente();
+		
+		int qtdePrimosDiagonalSecundaria = 
+				matriz.getQtdePrimosDiagonalSecundaria();
+		
+		System.out.println("Quantidade de primos = "+
+		                   qtdePrimosDiagonalSecundaria);
 
 	}
 
+	private int getQtdePrimosDiagonalSecundaria() {
+		int qtdePrimosSecundaria = 0;
+		for (int lin = 0, col = this.matriz.length - 1;
+				lin < this.matriz.length;
+				lin++, col--) {			
+			int numero = this.matriz[lin][col];
+			
+			if (this.ehPrimo(numero)) {
+				qtdePrimosSecundaria += 1;
+			}
+		}
+		
+		
+		return qtdePrimosSecundaria;
+	}
+
+	private boolean ehPrimo(int numero) {
+		if (numero < 2) {
+			return false;
+		}
+		
+		for (int divisor = 2; 
+				divisor < numero; 
+				divisor++) {
+			if (numero % divisor == 0) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+
 	private void lerNumerosPeloTeclado() {
-		System.out.println("\n\nLeitura Matriz\n\n");
+		System.out.println("\nLeitura Matriz\n");
 		Scanner ler = new Scanner(System.in);
 		
 		for (int lin = 0; lin < this.matriz.length; lin++) {
 			for (int col = 0; col < this.matriz.length; col++) {
-				System.out.printf("\nMatriz[%d][%d]: ",
+				System.out.printf("Matriz[%d][%d]: ",
 						          lin, col);
 				this.matriz[lin][col] = ler.nextInt();
 			}
