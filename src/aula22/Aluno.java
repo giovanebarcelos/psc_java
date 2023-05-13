@@ -55,6 +55,7 @@ public class Aluno implements Serializable {
 	}
 
 	public void salvar() throws Exception {
+		ObjectOutputStream arquivo = new ObjectOutputStream(new FileOutputStream(NOMEARQUIVO));
 		if (pesquisar(this.getId()) != null) {
 			throw new 
 			   Exception("Aluno "+
@@ -62,8 +63,6 @@ public class Aluno implements Serializable {
 						 " já esta cadastrado!");
 			
 		}		
-		
-		ObjectOutputStream arquivo = new ObjectOutputStream(new FileOutputStream(NOMEARQUIVO));
 
 		arquivo.writeObject(this);
 		arquivo.close();
@@ -75,13 +74,16 @@ public class Aluno implements Serializable {
 		while (true) {
 			try {
 				Aluno aluno = (Aluno) arquivo.readObject();
+				System.out.println(aluno.getId()+ aluno.getNome());
 				
-				if (aluno.getId().equals(id)) {
+				if (aluno.getId().equals(id.intValue())) {
 					return aluno;
 				}
 			} catch (ClassNotFoundException e) {
+				System.out.print(e.toString());
 				return null;
 			} catch (IOException e) {
+				System.out.print(e.toString());
 				return null;
 			}
 		}
